@@ -1,14 +1,18 @@
-import React from 'react';
-import Header from './Header';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 import Loading from '../components/Loading';
-
-class Search extends React.Component {
+import searchAlbumsAPI from '../services/searchAlbumsAPI'; 
+class Search extends Component {
   constructor() {
     super();
-    this.state = {
+    this.state = { 
       name: '',
+      artistName: '',
       button: true,
       loading: false,
+      album: [],
+      resolved: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,19 +21,55 @@ class Search extends React.Component {
   handleChange({ target: { value } }) {
     this.setState({
       name: value,
-      button: this.enableButton(value),
+      button: this.enableButon(value),
     });
   }
 
-  handleSubmit() {
-    return true;
+  async handleSubmit(name) {
+    this.setState({ loading: true, artistName: name }, async () => {
+      const album = await searchAlbumsAPI(name);
+      this.setState({
+        loading: false,
+        resolved: true,
+        name: '',
+        album,
+      });
+    });
   }
 
-  enableButton = (name) => {
+  enableButon = (name) => {
     if (name.length > 1) {
       return false;
     }
     return true;
+  }
+
+  renderAlbum() {
+    const { album, artistName, resolved } = this.state;
+    if (resolved && album.length > 0) {
+      return (
+        <>
+          <h3>{`Resultado de álbuns de: ${artistName}`}</h3>
+          { album.map((singleAlbum) => (
+            <div key={ singleAlbum.collectionId }>
+              <Link
+                data-testid={ `link-to-album-${singleAlbum.collectionId}` }
+                to={ `/album/${singleAlbum.collectionId}` }
+              >
+                <h1>{singleAlbum.artistName}</h1>
+                <h2>{singleAlbum.collectionName}</h2>
+                <img
+                  src={ singleAlbum.artworkUrl100 }
+                  alt={ singleAlbum.collectionName }
+                />
+              </Link>
+            </div>
+
+          ))}
+        </>
+      );
+    }
+    return (<h2>Nenhum álbum foi encontrado</h2>);
   }
 
   render() {
@@ -37,27 +77,30 @@ class Search extends React.Component {
     if (loading) return <Loading />;
     return (
       <>
+        <Header />
         <div data-testid="page-search">
-          <Header />
           <h1>Search</h1>
+          <form>
+            <input
+              name="name"
+              value={ name }
+              type="text"
+              data-testid="search-artist-input"
+              onChange={ this.handleChange }
+            />
+            <button
+              type="button"
+              data-testid="search-artist-button"
+              disabled={ button }
+              onClick={ () => this.handleSubmit(name) }
+            >
+              Pesquisar
+            </button>
+          </form>
+          <div>
+            { this.renderAlbum() }
+          </div>
         </div>
-        <form>
-          <input
-            name="name"
-            type="text"
-            value={ name }
-            data-testid="search-artist-input"
-            onChange={ this.handleChange }
-          />
-          <button
-            type="button"
-            data-testid="search-artist-button"
-            disabled={ button }
-            onClick={ this.handleSubmit }
-          >
-            Pesquisar
-          </button>
-        </form>
       </>
     );
   }

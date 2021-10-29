@@ -7,7 +7,7 @@ import searchAlbumsAPI from '../services/searchAlbumsAPI';
 class Search extends Component {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       name: '',
       artistName: '',
       button: true,

@@ -11,8 +11,7 @@ import Search from './components/Search';
 class App extends React.Component {
   render() {
     return (
-      <>
-        <p>TrybeTunes</p>
+      <div>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={ Login } />
@@ -24,7 +23,7 @@ class App extends React.Component {
             <Route component={ NotFound } />
           </Switch>
         </BrowserRouter>
-      </>
+      </div>
     );
   }
 }

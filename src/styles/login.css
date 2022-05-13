@@ -1,0 +1,195 @@
+.login-page-div{
+  align-items: center;
+  background: linear-gradient(to bottom, #e6eaee 30%, #999ea1 65%, #1c1d22 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.trybeTunes-title{
+  background: url('../images/ondasSonoras.jpeg');
+  background-clip: text;
+  color: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-size: 150px;
+  font-weight: 700;
+
+  /* stylelint-disable-next-line order/properties-alphabetical-order */
+  -webkit-background-clip: text;
+}
+
+.login-page{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 31%;
+}
+
+#inputName{
+  backdrop-filter: blur(15px);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  color: rgb(28, 34, 36);
+  font-family: 'Open Sans','Source Sans Pro',Helvetica,sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  height: 30px;
+  letter-spacing: 0.1em;
+  margin-top: 10%;
+  text-align: center;
+  width: 100%;
+}
+
+#inputName::placeholder {
+  color: rgba(3, 3, 3, 0.5);
+  text-align: center;
+}
+
+#inputName:focus{
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none !important;
+}
+
+.btn-login {
+  align-items: center;
+  backdrop-filter: blur(15px);
+  background: rgb(47, 0, 255);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  height: 50px;
+  letter-spacing: 1px;
+  margin-top: 50px;
+  overflow: hidden;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  width: 150px;
+  z-index: 1;
+}
+
+.btn-login::before {
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: 0.5s;
+  width: 50%;
+}
+
+.container{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: -50px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.container .btn {
+  height: 50px;
+  margin: 20px;
+  position: relative;
+  width: 155px;
+}
+
+.container .btn a {
+  align-items: center;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
+  font-weight: 500;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  letter-spacing: 1px;
+  overflow: hidden;
+  position: absolute;
+  text-decoration: none;
+  top: 0;
+  transition: 0.5s;
+  width: 100%;
+  z-index: 1;
+}
+
+.container .btn:hover a {
+  letter-spacing: 3px;
+}
+
+.container .btn a::before {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: skewX(45deg) translateX(0);
+  transition: 0.5s;
+  width: 50%;
+}
+
+.container .btn:hover a::before {
+  transform: skewX(5deg) translateX(200%);
+}
+
+.container .btn::before {
+  background: #2bd2ff;
+  border-radius: 10px;
+  bottom: -5px;
+  box-shadow: 0 0 5px #2bd2ff, 0 0 15px #2bd2ff, 0 0 30px #2bd2ff, 0 0 60px #2bd2ff;
+  content: '';
+  height: 10px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: 0.5s;
+  transition-delay: 0s;
+  width: 30px;
+}
+
+.container .btn:hover::before {
+  border-radius: 30px;
+  bottom: 0;
+  height: 50%;
+  transition-delay: 0.5s;
+  width: 80%;
+}
+
+.container .btn::after {
+  background: #2bd2ff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #2bd2ff, 0 0 15px #2bd2ff, 0 0 30px #2bd2ff, 0 0 60px #2bd2ff;
+  content: '';
+  height: 10px;
+  left: 50%;
+  position: absolute;
+  top: -5px;
+  transform: translateX(-50%);
+  transition: 0.5s;
+  transition-delay: 0s;
+  width: 30px;
+}
+
+.container .btn:hover::after {
+  border-radius: 30px;
+  height: 70%;
+  top: 5px;
+  transition-delay: 0.5s;
+  width: 90%;
+}

@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-max-depth */
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import Loading from './Loading';
+import { Redirect } from 'react-router';
 import { createUser } from '../services/userAPI';
+import Loading from './Loading';
+
+import '../styles/login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -47,29 +50,34 @@ class Login extends React.Component {
     if (redirectForSearch) return <Redirect to="/search" />;
 
     return (
-
-      <>
-        <div data-testid="page-login">
-          <h1>Login</h1>
+      <div data-testid="page-login">
+        <div className="login-page-div">
+          <p className="trybeTunes-title">TrybeTunes</p>
+          <form className="login-page">
+            <input
+              type="text"
+              name="name"
+              value={ name }
+              data-testid="login-name-input"
+              onChange={ this.handleChange }
+              id="inputName"
+              className="inputName"
+              placeholder="Digite o seu nome"
+            />
+            <div className="container">
+              <div className="btn">
+                <a
+                  href="#btn-submit"
+                  onClick={ this.handleSubmit }
+                  disabled={ button }
+                >
+                  ENTRAR
+                </a>
+              </div>
+            </div>
+          </form>
         </div>
-        <form>
-          <input
-            type="text"
-            name="name"
-            value={ name }
-            data-testid="login-name-input"
-            onChange={ this.handleChange }
-          />
-          <button
-            type="button"
-            data-testid="login-submit-button"
-            disabled={ button }
-            onClick={ this.handleSubmit }
-          >
-            Entrar
-          </button>
-        </form>
-      </>
+      </div>
     );
   }
 }

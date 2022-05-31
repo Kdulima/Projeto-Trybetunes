@@ -42,7 +42,7 @@ Este projeto foi desenvolvido durante o curso de formação Web Fullstack da [Tr
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/carloslima90/" target="_blank" rel="noopener noreferrer">
-        <img src="https://ca.slack-edge.com/TMDDFEPFU-U028A6P9R6C-7e3268b53ede-512" width="100px;" alt="Foto do Carlos Lima"/><br>
+        <img src="https://ca.slack-edge.com/TDXK4RHFF-U02DS2K8TNX-04fa7e891184-512" width="100px;" alt="Foto do Carlos Lima"/><br>
         <sub>
           <b>Carlos Lima - Dev</b>
         </sub>

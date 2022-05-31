@@ -16,6 +16,7 @@ h2 {
 
 h2 span {
   transition: 1.5s;
+  /* display: none; */
 }
 
 h2:hover span {

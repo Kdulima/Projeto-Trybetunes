@@ -51,9 +51,20 @@ class Login extends React.Component {
 
     return (
       <div data-testid="page-login">
-        <div className="login-page-div">
-          <p className="trybeTunes-title">TrybeTunes</p>
-          <form className="login-page">
+        <div className="login__page__container">
+          <h2>
+            <span>T</span>
+            <span>R</span>
+            <span>Y</span>
+            <span>B</span>
+            <span>E</span>
+            <span>T</span>
+            <span>U</span>
+            <span>N</span>
+            <span>E</span>
+            <span>S</span>
+          </h2>
+          <form className="login__page__form">
             <input
               type="text"
               name="name"
@@ -61,11 +72,11 @@ class Login extends React.Component {
               data-testid="login-name-input"
               onChange={ this.handleChange }
               id="inputName"
-              className="inputName"
+              className="login__page__inputName"
               placeholder="Digite o seu nome"
             />
-            <div className="container">
-              <div className="btn">
+            <div className="login__page__container__button">
+              <div className="login__page__btn">
                 <a
                   href="#btn-submit"
                   onClick={ this.handleSubmit }
